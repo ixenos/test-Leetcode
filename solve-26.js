@@ -38,7 +38,7 @@ var removeDuplicates1 = function(nums) {
         }
     }
     nums.length = curLen;
-    nums.sort(function(a,b){return a-b;});
+    nums.sort(function(a,b){return a-b;});//这里耗时了
     return curLen;
 };
 
