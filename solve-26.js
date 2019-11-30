@@ -58,3 +58,15 @@ var removeDuplicates2 = function(nums) {
     }
     return nums.length;
 };
+
+//解法3 双指针法 --ixenos 2019-11-30 15:27:57
+//因为结果不要求删除元素，只是取返回长度对应的数组，所以直接用双指针将不重复值提前
+var removeDuplicates3 = function(nums) {
+    var rsIdx=0, curIdx=0;
+    for(curIdx=0;curIdx<nums.length;curIdx++){
+        if(nums[rsIdx]!=nums[curIdx]){
+            nums[++rsIdx]=nums[curIdx];
+        }
+    }
+    return ++rsIdx;
+};
