@@ -56,3 +56,19 @@ var removeElement = function(nums, val) {
     }
     return rsIdx;
 };
+
+//解法二改进，双指针，减少赋值操作，在nums中val值较少时效率会更高
+var removeElement = function(nums, val) {
+    var i = 0;
+    var rs = nums.length;
+    while (i < n) {
+        if (nums[i] == val) {
+            nums[i] = nums[rs - 1];
+            // reduce array size by one
+            rs--;
+        } else {
+            i++;
+        }
+    }
+    return rs;
+}
