@@ -45,3 +45,14 @@ var removeElement = function(nums, val) {
     }
     return nums.length;
 };
+
+//解法二，双指针，存储想要的值
+var removeElement = function(nums, val) {
+    var rsIdx = 0;
+    for(var curIdx=0;curIdx<nums.length;curIdx++){
+        if(nums[curIdx]!=val){
+            nums[rsIdx++] = nums[curIdx];
+        } 
+    }
+    return rsIdx;
+};
