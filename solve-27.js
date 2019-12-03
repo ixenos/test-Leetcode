@@ -25,18 +25,17 @@
     你不需要考虑数组中超出新长度后面的元素。
 */
 
-//解法一，直接删除数组，逻辑简单，性能一般
+//解法一，直接删除数组，逻辑简单，性能一般 --ixenos 2019-11-30 16:18:37
 var removeElement = function(nums, val) {
     for(var curIdx=0;curIdx<nums.length;curIdx++){
         if(nums[curIdx]==val){
-            nums.splice(curIdx,1);
-            curIdx--;
+            nums.splice(curIdx--,1);
         }
     }
     return nums.length;
 };
 
-//解法一改进，从尾部删，减少重建数组的消耗
+//解法一改进，从尾部删，减少重建数组的消耗 --other
 var removeElement = function(nums, val) {
     for(var curIdx=nums.length-1;curIdx>=0;curIdx--){
         if(nums[curIdx]==val){
@@ -46,7 +45,7 @@ var removeElement = function(nums, val) {
     return nums.length;
 };
 
-//解法二，双指针，存储想要的值
+//解法二，双指针，存储想要的值 --ixenos 2019-11-30 16:19:09
 var removeElement = function(nums, val) {
     var rsIdx = 0;
     for(var curIdx=0;curIdx<nums.length;curIdx++){
@@ -57,7 +56,7 @@ var removeElement = function(nums, val) {
     return rsIdx;
 };
 
-//解法二改进，双指针，减少赋值操作，在nums中val值较少时效率会更高
+//解法二改进，双指针，减少赋值操作，在nums中val值较少时效率会更高 --other
 var removeElement = function(nums, val) {
     var i = 0;
     var rs = nums.length;
