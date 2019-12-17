@@ -24,10 +24,28 @@
 要求使用空间复杂度为 O(1) 的 原地 算法。
 */
 
-//解法一，不符合要求的解法
+//解法一，不符合要求的解法，--ixenos 2019-12-17 17:45:38
 var rotate = function(nums, k) {
     for(var i=0;i<k;i++){
         nums.unshift(nums.pop())        
     }
 };
+
+//解法二，递归，同样不符合，--ixenos 2019-12-17 17:45:45
+var count = 0;
+var rotate = function(nums, k) {
+    if(count<k){
+        var last = nums[nums.length-1];
+        for(var i=nums.length-1; i>=0; i--){
+            var aim = nums[i-1];
+            if(aim==null){
+                aim = last;
+            }
+            nums[i] = aim;
+        };
+        count++;
+        rotate(nums,k);
+    }
+};
+
 
