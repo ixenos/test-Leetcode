@@ -78,16 +78,7 @@ var containsDuplicate = function(nums) {
     }
     return ret;
 };
-
-var containsDuplicate = function(nums) {
-    if(nums.length<=1) return false;
-    let set = new Set();
-    for(let i = 0; i < nums.length; i++){
-        set.add(nums[i]);
-    }
-    return set.size != nums.length;
-};
-
+//简化
 var containsDuplicate = function(nums) {
     return new Set(nums).size != nums.length;
 };
