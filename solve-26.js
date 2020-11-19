@@ -72,3 +72,17 @@ var removeDuplicates = function(nums) {
     }
     return ++rsIdx;
 };
+
+//解法三优化 --ixenos 2020-11-19 11:16:34
+var removeDuplicates = function(nums) {
+    var len = !nums?0:nums.length;
+    if(len<=1){
+        return len;
+    }
+    for(var i=1, j=1; i<len; i++){
+        if(nums[i] != nums[j-1]){
+            nums[j++] = nums[i];
+        }
+    }
+    return j;
+};
