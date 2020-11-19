@@ -52,3 +52,25 @@ var maxProfit = function(prices) {
     }
     return profit;
 };
+
+//解法二： --ixenos 2020-11-19 11:50:26
+var maxProfit = function(prices) {
+    //先买入，后卖出
+    //买入时机：当后值比前值大时即可买入
+    //卖出时机：当后值比前值大，且后值的后值，比前值小时即可卖出
+    var profit = 0; 
+    var buy = null;
+    for(var i = 0; i<prices.length; i++){
+        if(buy==null){
+            if(i+1<prices.length && prices[i]<prices[i+1]){
+                buy = prices[i];
+            }
+        }else{
+            if(prices[i]>prices[i+1] || i+1>=prices.length){
+                profit += prices[i]-buy;
+                buy = null;
+            }
+        }
+    }
+    return profit;
+};
