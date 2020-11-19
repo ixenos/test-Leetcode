@@ -48,4 +48,8 @@ var rotate = function(nums, k) {
     }
 };
 
+//解法三，暴力，非原地算法 --ixenos 2020-11-19 14:18:49
+var rotate = function(nums, k) {
+    nums.splice.apply(nums,[0,0].concat(nums.splice(nums.length-k,k)));
+};
 
